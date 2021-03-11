@@ -1,0 +1,30 @@
+{
+	"name": "reliese/dependency",
+	"description": "Dependency Container",
+	"keywords": ["reliese", "dependency"],
+	"license": "MIT",
+	"type": "library",
+	"authors": [
+		{
+			"name": "Cristian Llanos",
+			"email": "hello@cristianllanos.com"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/reliese/php-dependency/issues",
+		"source": "https://github.com/reliese/php-dependency"
+	},
+	"require": {
+		"php": ">=7.2",
+		"reliese/component-dependency": "^1.0"
+	},
+	"require-dev": {
+		"kahlan/kahlan": "^4.6"
+	},
+	"autoload": {
+		"psr-4": {
+			"Reliese\\Dependency\\": "src/"
+		}
+	},
+	"prefer-stable": true
+}
