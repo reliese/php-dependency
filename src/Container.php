@@ -5,6 +5,9 @@ namespace Reliese\Dependency;
 use Closure;
 use Exception;
 use Reliese\Component\Dependency\Container as ContainerComponent;
+use Reliese\Component\Dependency\DependencyCaller;
+use Reliese\Component\Dependency\DependencyLocator;
+use Reliese\Component\Dependency\DependencyRegistrar;
 use Reliese\Component\Dependency\Exceptions\UnresolvableDependencyException;
 use ReflectionClass;
 use ReflectionException;
@@ -21,6 +24,22 @@ class Container implements ContainerComponent
 	 * @var array
 	 */
 	private $singletons = [];
+
+	/**
+	 * Container constructor.
+	 */
+	public function __construct()
+	{
+		$self = function () {
+			return $this;
+		};
+
+		$this->singleton(static::class, $self);
+		$this->singleton(ContainerComponent::class, $self);
+		$this->singleton(DependencyRegistrar::class, $self);
+		$this->singleton(DependencyLocator::class, $self);
+		$this->singleton(DependencyCaller::class, $self);
+	}
 
 	/**
 	 * @param $dependency
